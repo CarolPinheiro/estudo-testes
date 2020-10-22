@@ -9,3 +9,5 @@ module.exports.queryString = obj =>
   Object.entries(obj)
     .map(keyValueToString)
     .join('&');
+
+module.exports.parse = str => Object.fromEntries(str.split('&').map(e => e.split('=')))
