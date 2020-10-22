@@ -35,10 +35,17 @@ describe('Object to query string', () => {
 describe('Convert a query string to object', () => {
     it('should convert a simple query string to an object', () => {
         const qs = 'name=Carol&language=Javascript'
-
         expect(parse(qs)).toEqual({
             name: "Carol",
             language: "Javascript"
+        })
+    });
+
+    it('should convert a query string to an object, with a value that is an array', () => {
+        const qs = 'name=Carol&language=Javascript,PHP'
+        expect(parse(qs)).toEqual({
+            name: "Carol",
+            language: ["Javascript", 'PHP']
         })
     });
 })
